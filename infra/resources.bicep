@@ -3,13 +3,11 @@ param resourceToken string
 param tags object
 
 @description('The SKU of App Service Plan.')
-param sku string = 'P1v3'
+param sku string = 'S1'
 
 @description('OS of your Azure App Service plan.')
 @allowed([
-  'Windows'
   'Linux'
-  'Windows Container'
 ])
 param appServicePlanHostingOS string = 'Linux'
 
@@ -57,14 +55,13 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
   location: location
   sku: {
     name: sku
-    capacity: 3
+    capacity: 1
   }
   properties: {
     reserved: appServicePlanHostingOS == 'Linux' ? true : false
     hyperV: appServicePlanHostingOS == 'Windows Container' ? true : false
-    zoneRedundant: true
-    elasticScaleEnabled: true
-    maximumElasticWorkerCount: 30
+    zoneRedundant: false
+    elasticScaleEnabled: false
   }
 }
 
