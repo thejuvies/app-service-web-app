@@ -28,10 +28,10 @@ steps:
 
 - script: |
     python -m pip install --upgrade pip
-    pip install -r src/requirements.txt
+    pip install -r ./src/requirements.txt
   displayName: 'Install dependencies'
 
 - script: |
     pip install pytest pytest-azurepipelines
-    pytest src/app.py
+    pytest ./src/app.py
   displayName: 'pytest'
