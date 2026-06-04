@@ -64,7 +64,7 @@ stages:
   condition: succeeded()
 
   jobs:
-  - deployment: DeployWebApp
+  - job: DeployWebApp
     displayName: Deploy Flask App
 
     pool:
