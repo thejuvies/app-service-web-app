@@ -1,6 +1,7 @@
 trigger:
 - main
 
+
 variables:
   pythonVersion: '3.12'
   azureServiceConnection: 'azure-service-connection-demo'
