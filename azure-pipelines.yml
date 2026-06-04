@@ -70,18 +70,15 @@ stages:
     pool:
       vmImage: ubuntu-latest
 
-    strategy:
-      runOnce:
-        deploy:
-          steps:
+    steps:
 
-          - download: current
-            artifact: drop
+    - download: current
+      artifact: drop
 
-          - task: AzureWebApp@1
-            displayName: 'Deploy to Azure App Service'
-            inputs:
-              azureSubscription: '$(azureServiceConnection)'
-              appType: 'webAppLinux'
-              appName: '$(webAppName)'
-              package: '$(Pipeline.Workspace)/drop/app.zip'
+    - task: AzureWebApp@1
+      displayName: 'Deploy to Azure App Service'
+      inputs:
+        azureSubscription: '$(azureServiceConnection)'
+        appType: 'webAppLinux'
+        appName: '$(webAppName)'
+        package: '$(Pipeline.Workspace)/drop/app.zip'
