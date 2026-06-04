@@ -30,6 +30,7 @@ stages:
       displayName: 'Install dependencies'
 
     - script: |
+        export PYTHONPATH=$(Build.SourcesDirectory)
         pytest tests/ -v --junitxml=test-results.xml
       displayName: 'Run tests'
 
