@@ -283,3 +283,6 @@ resource scmPolicySlot 'Microsoft.Web/sites/slots/basicPublishingCredentialsPoli
 }
 
 output WEB_URI string = 'https://${webApp.properties.defaultHostName}'
+
+output WEBAPP_NAME string = webApp.name
+output SLOT_NAME string = webAppSlot.name

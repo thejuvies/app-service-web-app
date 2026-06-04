@@ -32,3 +32,6 @@ module resources 'resources.bicep' = {
 }
 
 output AZURE_LOCATION string = location
+
+output WEBAPP_NAME string = resources.outputs.WEBAPP_NAME
+output SLOT_NAME string = resources.outputs.SLOT_NAME
